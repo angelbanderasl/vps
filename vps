@@ -1,10 +1,11 @@
 #!/bin/bash
 function ssh_config(){
-echo 'Port 443
+echo "Port 443
 PermitRootLogin yes
 PubkeyAuthentication yes
 PasswordAuthentication yes
-' >> /etc/ssh/sshd_config
+" >> /etc/ssh/sshd_config
+echo "Banner /etc/bannerssh" >> /etc/ssh/sshd_config
 }
 function configurarsquid(){
 echo -e "\033[1;31mPara que la instalacion sea correcta se necesita una ip.
