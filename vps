@@ -34,6 +34,7 @@ acl iplocal dstdomain 127.0.0.1
 http_access allow iplocal
 http_access deny all' >> /etc/squid/squid.conf
 service squid restart 1> /dev/null 2> /dev/null
+exit
 }
 clear
 if [[ $1 == "" ]]
