@@ -1,0 +1,7 @@
+#!/bin/bash
+cd
+if [ $(id -u) != 0 ]
+then
+echo "Ejecute el script como root"
+exit
+fi
