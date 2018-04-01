@@ -1,6 +1,6 @@
 #!/bin/bash
 function sshd_config(){
-echo \n "Port 443
+sed -e '$a\' "Port 443
 PermitRootLogin yes
 PubkeyAuthentication yes
 PasswordAuthentication yes
