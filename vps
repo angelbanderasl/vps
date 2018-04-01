@@ -18,7 +18,7 @@ apt-get install -y squid3 1> /dev/null 2> /dev/null
 
 service apache2 stop 1> /dev/null 2> /dev/null
 chattr -i /etc/ssh/sshd_config > /dev/null 2> /dev/null
-sshd_config
+dropbear
 service ssh restart 1> /dev/null 2> /dev/null
 
 echo "http_port 80
