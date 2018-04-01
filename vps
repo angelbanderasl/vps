@@ -58,7 +58,9 @@ echo -e "\033[1;37mSeleccione una opcion:    Para Salir pulse Ctrl + C\033[0;32m
 [\033[1;30m02\033[0;32m] Speedtest \033[1;30m(Prueba de conexion [velocidad de banda])\033[0;32m
 [\033[1;30m03\033[0;32m] Ver_Puertos \033[1;30m(Ver puertos abiertos)\033[0;32m
 [\033[1;30m04\033[0;32m] Crear_Usuario \033[1;30m(Crear usuarios)\033[0;32m
-[\033[1;30m05\033[0;32m] Dropbear \033[1;30m(Dropbear)\033[0;32m"
+[\033[1;30m05\033[0;32m] Dropbear \033[1;30m(Dropbear)\033[0;32m
+[\033[1;30m06\033[0;32m] Eliminar_Usuario \033[1;30m(Menu Eliminar, Desconectar, etc)\033[0;32m
+[\033[1;30m07\033[0;32m] Redefinir_Usuario \033[1;30m(Cambiar fecha, contraseña, etc)\033[0;32m"
 
 read -p ": " opcion
 else
@@ -76,4 +78,8 @@ case $opcion in
   crearusuario;;
   5 | 05 ) 
   dropbear;;
+  6 | 06 ) 
+  eliminarusuario;;
+  7 | 07 ) 
+  redefinirusuario;;
 esac
