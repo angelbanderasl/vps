@@ -5,8 +5,8 @@ Port 443
 PermitRootLogin yes
 PubkeyAuthentication yes
 PasswordAuthentication yes
+Banner /etc/bannerssh
 " >> /etc/ssh/sshd_config
-echo "Banner /etc/bannerssh" >> /etc/ssh/sshd_config
 }
 function configurarsquid(){
 echo -e "\033[1;31mPara que la instalacion sea correcta se necesita una ip.
@@ -46,7 +46,8 @@ echo -e "\033[1;37m    Administrador Vps para ubuntu 16.04 © MX (Angel Banderas
 echo -e "\033[1;37mSeleccione una opcion:    Para Salir pulse Ctrl + C\033[0;32m
 [\033[1;30m01\033[0;32m] Squid_SSH_Dropbear... \033[1;30m(Squid, OpenSSH, Dropbear, Shadowsocks y BadVpn)\033[0;32m
 [\033[1;30m02\033[0;32m] Speedtest \033[1;30m(Prueba de conexion [velocidad de banda])\033[0;32m
-[\033[1;30m03\033[0;32m] Ver_Puertos \033[1;30m(Ver puertos abiertos)\033[0;32m"
+[\033[1;30m03\033[0;32m] Ver_Puertos \033[1;30m(Ver puertos abiertos)\033[0;32m
+[\033[1;30m04\033[0;32m] SSHD \033[1;30m(Ver puertos abiertos)\033[0;32m"
 
 read -p ": " option
 else
@@ -60,4 +61,6 @@ case $option in
   speedtest.py;;
   3 | 03 )
   netstat -tunlp;;
+  4 | 04 )
+  sshd_config;;
 esac
