@@ -5,3 +5,16 @@ then
 echo "Ejecute el script como root"
 exit
 fi
+rm -rf /bin/vps 2>/dev/null
+wget -o /dev/null -O- https://raw.githubusercontent.com/angelbanderasl/vps/master/vps > /bin/vps
+chmod +x /bin/vps
+rm -rf /bin/@actualiza 2>/dev/null
+wget -o /dev/null -O- https://raw.githubusercontent.com/angelbanderasl/vps/master/@actualiza > /bin/@actualiza
+chmod +x /bin/@actualiza
+clear
+echo -e "\033[1;32mInstalacion Finalizada\n\033[1;30mEjecute:"
+echo -e "\n\033[1;32mvps \033[1;30mMenu de opciones"
+echo -e "\033[1;32mCreada por: \033[1;30mAngel Banderas"
+echo -e "\033[1;32mInstalada \033[1;30mVersion 0.1\033[0m"
+echo -e "\033[1;32mPuedes actualizar con \033[1;30m@actualiza\033[0m"
+rm -rf install
