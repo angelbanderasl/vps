@@ -5,6 +5,10 @@ then
 echo "Ejecute el script como root"
 exit
 fi
+echo -e "\033[1;30mInstalando...\033[0m"
+mkdir /etc/vpsdirectorio 2>/dev/null
+mkdir /etc/vpsdirectorio/limite 2>/dev/null
+mkdir /etc/vpsdirectorio/contraseña 2>/dev/null
 rm -rf /bin/vps 2>/dev/null
 wget -o /dev/null -O- https://raw.githubusercontent.com/angelbanderasl/vps/master/vps > /bin/vps
 chmod +x /bin/vps
