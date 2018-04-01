@@ -9,11 +9,11 @@ PasswordAuthentication yes
 echo -e "\033[1;37m    Administrador Vps para ubuntu 16.04 © MX (Angel Banderas) \033[0m"
 echo -e "\033[1;37mSeleccione una opcion:    Para Salir pulse Ctrl + C\033[0;32m
 [\033[1;30m01\033[0;32m] Squid_SSH_Dropbear... \033[1;30m(Squid, OpenSSH, Dropbear, Shadowsocks y BadVpn)\033[0;32m
-read -p ": " opcion
+read -p ": " option
 else
-opcion=$1
+option=$1
 fi
-case $opcion in
+case $option in
   1 | 01 )
    ssh_config;;
 esac
