@@ -55,6 +55,7 @@ case $option in
   1 | 01 )
    configurarsquid;;
   2 | 02 )
+  apt install python -y
   speedtest.py;;
   3 | 03 )
   netstat -tunlp;;
