@@ -60,7 +60,8 @@ echo -e "\033[1;37mSeleccione una opcion:    Para Salir pulse Ctrl + C\033[0;32m
 [\033[1;30m04\033[0;32m] Crear_Usuario \033[1;30m(Crear usuarios)\033[0;32m
 [\033[1;30m05\033[0;32m] Dropbear \033[1;30m(Dropbear)\033[0;32m
 [\033[1;30m06\033[0;32m] Eliminar_Usuario \033[1;30m(Menu Eliminar, Desconectar, etc)\033[0;32m
-[\033[1;30m07\033[0;32m] Redefinir_Usuario \033[1;30m(Cambiar fecha, contraseña, etc)\033[0;32m"
+[\033[1;30m07\033[0;32m] Redefinir_Usuario \033[1;30m(Cambiar fecha, contraseña, etc)\033[0;32m
+[\033[1;30m08\033[0;32m] Badvpn \033[1;30m(Badvpn)\033[0;32m"
 
 read -p ": " opcion
 else
@@ -82,4 +83,6 @@ case $opcion in
   eliminarusuario;;
   7 | 07 ) 
   redefinirusuario;;
+  8 | 08 ) 
+  badvpn;;
 esac
