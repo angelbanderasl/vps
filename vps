@@ -23,7 +23,7 @@ echo "http_port 80
 http_port 8080
 http_port 8799
 http_port 3128
-visible_hostname VpsPack
+visible_hostname vpsadmin
 acl ip dstdomain $ip
 http_access allow ip" > /etc/squid/squid.conf
 echo 'acl accept dstdomain -i "/etc/payloads"
@@ -34,7 +34,8 @@ acl iplocal dstdomain 127.0.0.1
 http_access allow iplocal
 http_access deny all' >> /etc/squid/squid.conf
 service squid restart 1> /dev/null 2> /dev/null
-exit
+echo -e "\033[01;31mFinalizado !! \033[0m"
+exit 0
 }
 clear
 if [[ $1 == "" ]]
