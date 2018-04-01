@@ -1,10 +1,41 @@
 #!/bin/bash
 function ssh_config(){
+echo -e "\033[1;31mPara que la instalacion sea correcta se necesita una ip.
+Digite su ip !\033[0m"
+read -p ": " ip
 echo 'Port 443
 PermitRootLogin yes
 PubkeyAuthentication yes
 PasswordAuthentication yes
 ' >> /etc/ssh/sshd_config
+echo -e "\033[1;37mConfigurando, Espere...\033[0m"
+apt-get update 1> /dev/null 2> /dev/null
+apt-get install -y squid3 1> /dev/null 2> /dev/null
+
+service apache2 stop 1> /dev/null 2> /dev/null
+chattr -i /etc/ssh/sshd_config > /dev/null 2> /dev/null
+sshd_config
+service ssh restart 1> /dev/null 2> /dev/null
+
+echo "http_port 80
+http_port 8080
+http_port 8799
+http_port 3128
+visible_hostname VpsPack
+acl ip dstdomain $ip
+http_access allow ip" > /etc/squid/squid.conf
+echo 'acl accept dstdomain -i "/etc/payloads"
+http_access allow accept
+acl local dstdomain localhost
+http_access allow local
+acl iplocal dstdomain 127.0.0.1
+http_access allow iplocal
+http_access deny all' >> /etc/squid/squid.conf
+
+addihost
+removerhostf
+payloads
+service squid restart 1> /dev/null 2> /dev/null
 }
 clear
 if [[ $1 == "" ]]
