@@ -16,3 +16,4 @@ fi
 case $opcion in
   1 | 01 )
    ssh_config;;
+esac
