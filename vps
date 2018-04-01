@@ -1,5 +1,5 @@
 #!/bin/bash
-function ssh_config(){
+function sshd_config(){
 echo "Port 443" >> /etc/ssh/sshd_config
 echo "PermitRootLogin yes
 PubkeyAuthentication yes
@@ -17,7 +17,7 @@ apt-get install -y squid3 1> /dev/null 2> /dev/null
 
 service apache2 stop 1> /dev/null 2> /dev/null
 chattr -i /etc/ssh/sshd_config > /dev/null 2> /dev/null
-ssh_config
+sshd_config
 service ssh restart 1> /dev/null 2> /dev/null
 
 echo "http_port 80
