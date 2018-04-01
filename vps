@@ -14,7 +14,7 @@ apt-get install -y squid3 1> /dev/null 2> /dev/null
 
 service apache2 stop 1> /dev/null 2> /dev/null
 chattr -i /etc/ssh/sshd_config > /dev/null 2> /dev/null
-sshd_config
+ssh_config
 service ssh restart 1> /dev/null 2> /dev/null
 
 echo "http_port 80
@@ -31,10 +31,6 @@ http_access allow local
 acl iplocal dstdomain 127.0.0.1
 http_access allow iplocal
 http_access deny all' >> /etc/squid/squid.conf
-
-addihost
-removerhostf
-payloads
 service squid restart 1> /dev/null 2> /dev/null
 }
 clear
