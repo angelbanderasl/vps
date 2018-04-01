@@ -39,6 +39,16 @@ service squid restart 1> /dev/null 2> /dev/null
 echo -e "\033[01;31mFinalizado !! \033[0m"
 exit 0
 }
+function dropbear(){
+apt-get -y install dropbear
+sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
+sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=444/g' /etc/default/dropbear
+sed -i 's/DROPBEAR_EXTRA_ARGS=/DROPBEAR_EXTRA_ARGS="-p 80"/g' /etc/default/dropbear
+echo "/bin/false" >> /etc/shells
+echo "/usr/sbin/nologin" >> /etc/shells
+service ssh restart
+service dropbear restart
+}
 clear
 if [[ $1 == "" ]]
 then
@@ -47,13 +57,14 @@ echo -e "\033[1;37mSeleccione una opcion:    Para Salir pulse Ctrl + C\033[0;32m
 [\033[1;30m01\033[0;32m] Squid_SSH_Dropbear... \033[1;30m(Squid, OpenSSH, Dropbear, Shadowsocks y BadVpn)\033[0;32m
 [\033[1;30m02\033[0;32m] Speedtest \033[1;30m(Prueba de conexion [velocidad de banda])\033[0;32m
 [\033[1;30m03\033[0;32m] Ver_Puertos \033[1;30m(Ver puertos abiertos)\033[0;32m
-[\033[1;30m04\033[0;32m] Crear_Usuario \033[1;30m(Crear usuarios)\033[0;32m"
+[\033[1;30m04\033[0;32m] Crear_Usuario \033[1;30m(Crear usuarios)\033[0;32m
+[\033[1;30m05\033[0;32m] Dropbear \033[1;30m(Dropbear)\033[0;32m"
 
-read -p ": " option
+read -p ": " opcion
 else
-option=$1
+opcion=$1
 fi
-case $option in
+case $opcion in
   1 | 01 )
    configurarsquid;;
   2 | 02 )
@@ -63,4 +74,6 @@ case $option in
   netstat -tunlp;;
   4 | 04 )
   crearusuario;;
+  5 | 05 ) 
+  dropbear;;
 esac
