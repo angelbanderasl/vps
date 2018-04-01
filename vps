@@ -1,13 +1,15 @@
 #!/bin/bash
 function ssh_config(){
-echo -e "\033[1;31mPara que la instalacion sea correcta se necesita una ip.
-Digite su ip !\033[0m"
-read -p ": " ip
 echo 'Port 443
 PermitRootLogin yes
 PubkeyAuthentication yes
 PasswordAuthentication yes
 ' >> /etc/ssh/sshd_config
+}
+function configurarsquid(){
+echo -e "\033[1;31mPara que la instalacion sea correcta se necesita una ip.
+Digite su ip !\033[0m"
+read -p ": " ip
 echo -e "\033[1;37mConfigurando, Espere...\033[0m"
 apt-get update 1> /dev/null 2> /dev/null
 apt-get install -y squid3 1> /dev/null 2> /dev/null
