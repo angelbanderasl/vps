@@ -84,5 +84,5 @@ case $opcion in
   7 | 07 ) 
   redefinirusuario;;
   8 | 08 ) 
-  badvpn;;
+  bash badvpn;;
 esac
