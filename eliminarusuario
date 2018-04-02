@@ -12,6 +12,7 @@ read -p ": " option
  exit
  fi
  userdel --force $name > /dev/null 2>/dev/null
+ rm -r $name
  echo "El usuario $name fue eliminado"
  exit
  fi
