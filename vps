@@ -326,8 +326,6 @@ echo -e "\nUsuario: $user, Nuevo nombre: $nome."
 mv /etc/vpsdirectorio/contraseña/$user /etc/vpsdirectorio/contraseña/$nome
 mv /etc/vpsdirectorio/limite/$user /etc/vpsdirectorio/limite/$nome
 mv /etc/vpsdirectorio/limite/$user.sh /etc/vpsdirectorio/limite/$nome.sh
-pids=$(ps -u $user |awk {'print $1'})
-kill "$pids" >/dev/null 2>/dev/null
 exit
 }
 
