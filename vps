@@ -323,6 +323,9 @@ fi
 printf "Nuevo nombre para el usuario $user: "; read nome
 usermod -l $nome $user 1>/dev/null 2>/dev/null
 echo -e "\nUsuario: $user, Nuevo nombre: $nome."
+mv /etc/vpsdirectorio/contraseña/$user /etc/vpsdirectorio/contraseña/$nome
+mv /etc/vpsdirectorio/limite/$user /etc/vpsdirectorio/limite/$nome
+mv /etc/vpsdirectorio/limite/$user.sh /etc/vpsdirectorio/limite/$nome.sh
 exit
 }
 
