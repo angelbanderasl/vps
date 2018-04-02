@@ -279,7 +279,7 @@ rm -rf /etc/vpsdirectorio/usuariosprueba/$nome.sh
 exit" > /etc/vpsdirectorio/usuariosprueba/$nome.sh
 echo -e "Usuario: $nome
 Contraseña: $pass
-Valido hasta: $tempo\n
+Valido por: $tempo\n
 Despues de expirar, los usuarios seran desconectados."
 bash /etc/vpsdirectorio/usuariosprueba/$nome.sh &
 exit
