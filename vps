@@ -77,7 +77,8 @@ wget https://raw.githubusercontent.com/angelbanderasl/vps/master/webmin && bash 
 rm -r webmin
 }
 function banner(){
-wget https://raw.githubusercontent.com/angelbanderasl/vps/master/bannner && bash banner
+cd
+wget https://raw.githubusercontent.com/angelbanderasl/vps/master/banner && bash banner
 rm -r banner
 }
 function detallesdelsistema(){
