@@ -72,7 +72,8 @@ echo -e "\033[1;37mSeleccione una opcion:    Para Salir pulse Ctrl + C\033[0;32m
 [\033[1;30m07\033[0;32m] Redefinir_Usuario \033[1;30m(Cambiar fecha, contraseña, etc)\033[0;32m
 [\033[1;30m08\033[0;32m] Badvpn \033[1;30m(Badvpn)\033[0;32m
 [\033[1;30m09\033[0;32m] Webmin \033[1;30m(Instalar Webmin)\033[0;32m
-[\033[1;30m10\033[0;32m] Dropbear \033[1;30m(Ver usuarios conectados en Dropbear)\033[0;32m"
+[\033[1;30m10\033[0;32m] Dropbear \033[1;30m(Ver usuarios conectados en Dropbear)\033[0;32m
+[\033[1;30m11\033[0;32m] Banner \033[1;30m(Banner preconfigurado)\033[0;32m"
 
 read -p ": " opcion
 else
