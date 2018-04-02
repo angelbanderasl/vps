@@ -137,16 +137,16 @@ echo -e "\033[1;30m-------------------------------------------------------------
 for users in `awk -F : '$3 > 900 { print $1 }' /etc/passwd |sort |grep -v "nobody" |grep -vi polkitd |grep -vi system-`
 do
 
-if cat /etc/VpsPackdir/limite/$users > /dev/null 2> /dev/null
+if cat /etc/vpsdirectorio/limite/$users > /dev/null 2> /dev/null
 then
-limitecs=$(cat /etc/VpsPackdir/limite/$users)
+limitecs=$(cat /etc/vpsdirectorio/limite/$users)
 else
 limitecs="null"
 fi
 
-if  senha=$(cat /etc/VpsPackdir/senha/$users > /dev/null 2> /dev/null)
+if  senha=$(cat /etc/vpsdirectorio/contraseña/$users > /dev/null 2> /dev/null)
 then
-senha=$(cat /etc/VpsPackdir/senha/$users)
+senha=$(cat /etc/vpsdirectorio/contraseña/$users)
 else
 senha="null"
 fi
@@ -169,28 +169,28 @@ clear
 echo -e "\033[1;37mHaciendo Backup de Usuarios...\033[0m"
 for user in `awk -F : '$3 > 900 { print $1 }' /etc/passwd |grep -v "nobody" |grep -vi polkitd |grep -vi systemd-[a-z] |grep -vi systemd-[0-9]`
 do
-if [ -e /etc/VpsPackdir/senha/$user ]
+if [ -e /etc/vpsdirectorio/contraseña/$user ]
 then
-pass=$(cat /etc/VpsPackdir/senha/$user)
+pass=$(cat /etc/vpsdirectorio/contraseña/$user)
 else
 echo -e "\033[1;31mNo fue posible obtener la contraseña del usuario\033[1;37m ($user)"
 read -p "Introduzca la contraseña manualmente o pulse ENTER: " pass
 fi
 
-if [ -e /etc/VpsPackdir/limite/$user ]
+if [ -e /etc/vpsdirectorio/limite/$user ]
 then
-limite=$(cat /etc/VpsPackdir/limite/$user)
-echo "$user:$pass:$limite" >> /etc/VpsPackdir/backup
+limite=$(cat /etc/vpsdirectorio/limite/$user)
+echo "$user:$pass:$limite" >> /etc/vpsdirectorio/backup
 echo -e "\033[1;37mUser $user Backup [\033[1;31mOK\033[1;37m]\033[0m"
 else
-echo "$user:$pass" >> /etc/VpsPackdir/backup
+echo "$user:$pass" >> /etc/vpsdirectorio/backup
 echo -e "\033[1;37mUser $user Backup [\033[1;31mOK\033[1;37m]\033[0m"
 fi
 done
 echo " "
 echo -e "\033[1;31mBackup Completado !!!\033[0m"
 echo " "
-echo -e "\033[1;37mLa informacion de los usuarios se encuentra en el archivo \033[1;31m /etc/VpsPackdir/backup \033[1;37m
+echo -e "\033[1;37mLa informacion de los usuarios se encuentra en el archivo \033[1;31m /etc/vpsdirectorio/backup \033[1;37m
 Guardelo para una futura restauracion\033[0m"
 }
 function restaurar_usuarios(){
@@ -245,8 +245,8 @@ echo -e "\033[1;37m -------------------------------------------------------\033[
 echo -e " \033[47;30m   Usuario                :               Conexiones S   \033[0m"
 echo -e "\033[1;37m -------------------------------------------------------\033[0m"
 for usur in `awk -F : '$3 > 900 { print $1 }' /etc/passwd |grep -v "nobody" |grep -vi polkitd |grep -vi systemd-[a-z] |grep -vi systemd-[0-9] |sort`; do
-if [ -f /etc/VpsPackdir/limite/$usur ]; then
-limite=$(cat -n /etc/VpsPackdir/limite/$usur |awk '$1 = 1 {print $2}')
+if [ -f /etc/vpsdirectorio/limite/$usur ]; then
+limite=$(cat -n /etc/vpsdirectorio/limite/$usur |awk '$1 = 1 {print $2}')
 else
 limite=null
 fi
