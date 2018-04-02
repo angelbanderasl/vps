@@ -257,9 +257,9 @@ echo -e "\033[1;37m -------------------------------------------------------\033[
 done
 }
 function crearusuariodeprueba(){
-mkdir /etc/usuariosteste 1>/dev/null 2>/dev/null
+mkdir /etc/usuariosprueba 1>/dev/null 2>/dev/null
 echo -e "   Usuarios de prueba"
-for testus in $(ls /etc/usuariosteste |sort |sed 's/.sh//g')
+for testus in $(ls /etc/usuariosprueba |sort |sed 's/.sh//g')
 do
 echo "$testus"
 done
@@ -275,13 +275,13 @@ echo "#!/bin/bash
 sleep $tempo
 kill"' $(ps -u '"$nome |awk '{print"' $1'"}') 1>/dev/null 2>/dev/null
 userdel --force $nome
-rm -rf /etc/usuariosteste/$nome.sh
-exit" > /etc/usuariosteste/$nome.sh
+rm -rf /etc/usuariosprueba/$nome.sh
+exit" > /etc/usuariosprueba/$nome.sh
 echo -e "Usuario: $nome
-Senha: $pass
-Validade: $tempo\n
+Contraseña: $pass
+Valido hasta: $tempo\n
 Despues de expirar, los usuarios seran desconectados."
-bash /etc/usuariosteste/$nome.sh &
+bash /etc/usuariosprueba/$nome.sh &
 exit
 }
 function removerexpirados(){
