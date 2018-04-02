@@ -28,6 +28,9 @@ read -p ": " option
  pids=$(ps -u $name |awk {'print $1'})
  kill "$pids" >/dev/null 2>/dev/null
  userdel $name 1>/dev/null 2>/dev/null
+  rm -r /etc/vpsdirectorio/limite/$name
+ rm -r /etc/vpsdirectorio/limite/$name.sh
+ rm -r /etc/vpsdirectorio/contraseña/$name
  echo "El usuario $name fue desconectado y eliminado"
  exit
  fi
