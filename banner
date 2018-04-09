@@ -6,6 +6,10 @@ banner3="
 <BR><font color='#DAA520'>===========================================</BR></font>
 <BR><font color='#008080'>******************Servicio Premium******************</BR></font>
 <BR><font color='#DAA520'>===========================================</BR></font>
+<BR><font color='#008080'>*******************Angel Banderas*******************</BR></font>
+<BR><font color='#DAA520'>===========================================</BR></font>
+<BR><font color='#008080'>*********************3411014879*********************</BR></font>
+<BR><font color='#DAA520'>===========================================</BR></font>
 <BR><font color='#1E90FF'>------------------------Llamadas whatsapp ✔---------------------</BR></font>
 <BR><font color='#1E90FF'>----------------------------Juegos Online ✔---------------------------</BR></font>
 <BR><font color='#1E90FF'>--------------------------------Torrents 🚫--------------------------------</BR></font>
@@ -37,6 +41,10 @@ banner2="
 <BR><font color='#DAA520'>===============================================</BR></font>
 <BR><font color='#008080'>********************Servicio Premium********************</BR></font>
 <BR><font color='#DAA520'>===============================================</BR></font>
+<BR><font color='#008080'>*********************Angel banderas*********************</BR></font>
+<BR><font color='#DAA520'>===============================================</BR></font>
+<BR><font color='#008080'>***********************3411014879***********************</BR></font>
+<BR><font color='#DAA520'>===============================================</BR></font>
 <BR><font color='#1E90FF'>---------------------------Llamadas whatsapp ✔-------------------------</BR></font>
 <BR><font color='#1E90FF'>-------------------------------Juegos Online ✔------------------------------</BR></font>
 <BR><font color='#1E90FF'>-----------------------------------Torrents 🚫------------------------------------</BR></font>
@@ -45,6 +53,6 @@ banner2="
 <BR><font color='#DAA520'>===============================================</BR></font>
 <BR><font color='#1E90FF'> Validando acceso.....</BR></font>
 "
-echo "$banner2" > /etc/bannerssh
+echo "$banner3" > /etc/bannerssh
 /etc/init.d/ssh restart
 echo -e "\033[1;37mTerminado !!!\033[0m"
