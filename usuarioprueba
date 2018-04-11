@@ -1,0 +1,32 @@
+#!/bin/bash
+mkdir /etc/vpsdirectorio/usuariosprueba 1>/dev/null 2>/dev/null
+mkdir /etc/vpsdirectorio/usuariosprueba/detalles 1>/dev/null 2>/dev/null
+echo -e "   Usuarios de prueba"
+for testus in $(ls /etc/vpsdirectorio/usuariosprueba |sort |sed 's/.sh//g')
+do
+echo "$testus"
+done
+printf "\n"
+printf "Nombre del usuario: "; read nome
+printf "Contraseña del usuario: "; read pass
+echo -e "\nUsa s = segundos, m = minutos, h = horas e d = dias Ejemplo: 14s ."
+printf "Cuanto tiempo la cuenta $nome debe durar: ";read tempoin
+tempo=$(echo "$tempoin" |sed 's/ //g')
+useradd -M -s /bin/false $nome
+echo "$pass" > /etc/vpsdirectorio/usuariosprueba/detalles/$nome
+echo "$tempo" > /etc/vpsdirectorio/usuariosprueba/detalles/$nome.sh
+(echo $pass;echo $pass) |passwd $nome 1>/dev/null 2>/dev/null
+echo "#!/bin/bash
+sleep $tempo
+kill"' $(ps -u '"$nome |awk '{print"' $1'"}') 1>/dev/null 2>/dev/null
+userdel --force $nome
+rm -rf /etc/vpsdirectorio/usuariosprueba/$nome.sh
+rm -rf /etc/vpsdirectorio/usuariosprueba/detalles/$nome
+rm -rf /etc/vpsdirectorio/usuariosprueba/detalles/$nome.sh
+exit" > /etc/vpsdirectorio/usuariosprueba/$nome.sh
+echo -e "Usuario: $nome
+Contraseña: $pass
+Valido por: $tempo\n
+Despues de expirar, los usuarios seran desconectados."
+bash /etc/vpsdirectorio/usuariosprueba/$nome.sh &
+exit
